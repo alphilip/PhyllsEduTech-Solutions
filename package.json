@@ -1,0 +1,1 @@
+{"dependencies":{"@whiskeysockets/baileys":"^6.7.18","express":"^4.19.2","pino":"^9.4.0","qrcode":"^1.5.4"},"description":"Multi-school WhatsApp gateway for the School Management SaaS — one linked WhatsApp session per school (Baileys).","main":"index.js","name":"school-whatsapp-gateway","scripts":{"start":"node index.js"},"type":"commonjs","version":"1.0.0"}
