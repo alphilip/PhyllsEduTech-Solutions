@@ -2,8 +2,11 @@ FROM node:20-slim
 
 WORKDIR /app
 
-# Baileys/libsignal may compile native helpers on install
-RUN apt-get update && apt-get install -y --no-install-recommends python3 make g++ \
+# git is REQUIRED: Baileys depends on libsignal via a github: URL, so
+# npm must spawn git to fetch it — without git the install dies with
+# "npm error syscall spawn git / ENOENT" (Coolify build 23 Oct 2026).
+# python3/make/g++ cover any native helpers that compile on install.
+RUN apt-get update && apt-get install -y --no-install-recommends git ca-certificates python3 make g++ \
     && rm -rf /var/lib/apt/lists/*
 
 COPY package*.json ./
